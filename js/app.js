@@ -1,5 +1,15 @@
 // Tworzymy moduł aplikacji
-var myApp = angular.module('userApp', []);
+var myApp = angular.module('userApp', ["xeditable"]);
+
+myApp.run(function(editableOptions) {
+   editableOptions.theme = 'bs3';
+ });
+ 
+ myApp.controller('Ctrl', function($scope) {
+   $scope.user2 = {
+     name: 'awesome usr'
+   };
+ });
 
 // Tworzymy kotroler UserCtrl
 myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
@@ -32,9 +42,9 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
       }
    };
 
-   $scope.undoDelete = function (user) {
-      user.state = "normal";
-   };
+   // $scope.undoDelete = function (user) {
+   //    user.state = "normal";
+   // };
    $scope.editUser = function (user) {
       user.oldNazwiskoIImie = user.nazwiskoIImie;
       user.oldNr_indeksu = user.nr_indeksu;

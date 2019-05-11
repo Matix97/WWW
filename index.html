@@ -9,7 +9,9 @@
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
   <!-- Importuj AngularJS -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+   <!-- Angular.js -->
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-sanitize.min.js"></script>
 
   <!-- Importuj Booststrap -->
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +20,7 @@
   <!-- Importuj kod aplikacji -->
   <script type="text/javascript" src="js/app.js"></script>
   <link href="css/app.css" rel="stylesheet" type="text/css">
-  <script type="text/javascript" src="js/xeMod.js"></script>
+  <!-- <script type="text/javascript" src="js/xeMod.js"></script> -->
 
   <!-- Importuj xeditable-->
   <link href="css/xeditable.css" rel="stylesheet">
@@ -31,7 +33,7 @@
   <div ng-app="userApp">
 
     <!-- Ten blok definiuje kontroler UserCtrl -->
-    <div ng-controller="UserCtrl">
+    <div ng-controller="UserCtrl" ng-controller="Ctrl">
       <table class="table table-bordered">
         <thead>
           <th>Operacje</th>
@@ -47,7 +49,7 @@
         <tbody ng-repeat="user in users" ng-switch on="user.state">
 
           <!-- Szablon edycji użytkownika pokazywany warunkowo -->
-          <tr ng-switch-when="edit">
+          <!-- <tr ng-switch-when="edit">
             <td>
               <input type="button" class="btn btn-primary" ng-click="editUser(user);" value="Edit" />
             </td>
@@ -62,7 +64,7 @@
             </td>
             <td> <input type="button" class="btn btn-danger" ng-click="cancelEdit(user);" value="Cancel" />
             </td>
-          </tr>
+          </tr> -->
           <!-- Szablon usuwania rekordu -->
           <tr class="danger" ng-switch-when="deleted">
             <td>{{user.nazwiskoIImie}}</td>
@@ -74,12 +76,11 @@
           <!-- Szablon wyświetlania użytkownika -->
           <tr ng-switch-default>
             <td><input type="button" class="btn btn-danger" ng-click="deleteUser(user);" value="Delete" /></td>
-            <td>{{user.nazwiskoIImie}}</td>
-            <td>{{user.nr_indeksu}}</td>
-            <!-- <td><input type="button" class="btn btn-primary" ng-click="editUser(user);" value="Edit" /></td> -->
-            <td>{{user.javaScript}}</td>
-            <td>{{user.jQuery}}</td>
-            <td>{{user.PHP}}</td>
+            <td editable-text="user.nazwiskoIImie">{{user.nazwiskoIImie}}</td>
+            <td editable-text="user.nr_indeksu">{{user.nr_indeksu}}</td>
+            <td editable-text="user.javaScript">{{user.javaScript}}</td>
+            <td editable-text="user.jQuery">{{user.jQuery}}</td>
+            <td editable-text="user.PHP">{{user.PHP}}</td>
             <td>0</td>
           </tr>
           <!-- Formularz dodawania rekordu -->
@@ -101,16 +102,11 @@
         </tbody>
       </table>
     </div> <!-- Koniec ng-controller -->
+   
   </div> <!-- Koniec ng-app -->
-  <div ng-app="app">
-    <div ng-controller="Ctrl">
-      <!-- editable element -->
-      <a href="#" editable-text="user2.name">{{ user2.name || "empty" }}</a>
-      <div id="debug" style="margin-top: 30px">
-        {{ user | json }}
-      </div>
-    </div>
-  </div>
+  
+ 
+ 
 </body>
 
 </html>
