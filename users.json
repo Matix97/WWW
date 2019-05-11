@@ -1,0 +1,24 @@
+
+[
+    {
+        "nazwiskoIImie": "Barański Mateusz",
+        "nr_indeksu": 209269,
+        "javaScript": 8,
+        "jQuery": 7,
+        "PHP": 8
+    },
+    {
+        "nazwiskoIImie": "Kowalski Jan",
+        "nr_indeksu": 209456,
+        "javaScript": 3,
+        "jQuery": 17,
+        "PHP": 81
+    }   ,
+    {
+        "nazwiskoIImie": "Zieliński Piotr",
+        "nr_indeksu": 209456,
+        "javaScript": 28,
+        "jQuery": 3,
+        "PHP": 38
+    }   
+]
