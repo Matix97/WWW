@@ -8,10 +8,9 @@
   <!-- Importuj jQuery -->
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-  <!-- Importuj AngularJS -->
-   <!-- Angular.js -->
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-sanitize.min.js"></script>
+  <!-- Angular.js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-sanitize.min.js"></script>
 
   <!-- Importuj Booststrap -->
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
@@ -48,31 +47,7 @@
         <!-- prezentacja zawartości modelu w każdym wierszu osobny obiekt użytkownika -->
         <tbody ng-repeat="user in users" ng-switch on="user.state">
 
-          <!-- Szablon edycji użytkownika pokazywany warunkowo -->
-          <!-- <tr ng-switch-when="edit">
-            <td>
-              <input type="button" class="btn btn-primary" ng-click="editUser(user);" value="Edit" />
-            </td>
-            <td>
-              <input type="text" class="form-control" ng-model="user.nazwiskoIImie" />
-            </td>
-            <td>
-              <input type="text" class="form-control" ng-model="user.phone_number" />
-            </td>
-            <td>
-              <input type="button" class="btn btn-success" ng-click="saveUser(user);" value="Save" />
-            </td>
-            <td> <input type="button" class="btn btn-danger" ng-click="cancelEdit(user);" value="Cancel" />
-            </td>
-          </tr> -->
-          <!-- Szablon usuwania rekordu -->
-          <tr class="danger" ng-switch-when="deleted">
-            <td>{{user.nazwiskoIImie}}</td>
-            <td>{{user.address}}</td>
-            <td>{{user.phone_number}}</td>
-            <td><input type="button" class="btn btn-danger" ng-click="deleteUser(user);" value="Del Perm." /></td>
-            <td><input type="button" class="btn btn-success" ng-click="undoDelete(user)" value="Undo" /></td>
-          </tr>
+
           <!-- Szablon wyświetlania użytkownika -->
           <tr ng-switch-default>
             <td><input type="button" class="btn btn-danger" ng-click="deleteUser(user);" value="Delete" /></td>
@@ -83,30 +58,27 @@
             <td editable-text="user.PHP">{{user.PHP}}</td>
             <td>0</td>
           </tr>
-          <!-- Formularz dodawania rekordu -->
+          <!-- Podsumowanie -->
         <tbody>
           <tr>
-            <td>
-              <input type="button" class="btn btn-danger" ng-click="deleteUser(user);" value="Delete" />
-            </td>
-            <td>
-              <input type="text" class="form-control" ng-model="newUser.nazwiskoIImie" />
-            </td>
-            <td>
-              <input type="text" class="form-control" ng-model="newUser.phone_number" />
-            </td>
-            <td><input type="button" class="btn btn-primary" ng-click="addUser();" value="Add" />
-
-            </td>
+            <td>Podsumowanie</td>
+            <td></td>
+            <td></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
           </tr>
         </tbody>
+
       </table>
+      <input type="button" class="btn btn-primary" ng-click="addUser();" value="Add" />
     </div> <!-- Koniec ng-controller -->
-   
+
   </div> <!-- Koniec ng-app -->
-  
- 
- 
+
+
+
 </body>
 
 </html>
