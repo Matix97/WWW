@@ -13,15 +13,50 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
    $scope.users = [];
    $scope.newUser = {};
 
-   $scope.getUserCount = function (user) {
-      return Number(user.PHP) + Number(user.javaScript) + Number(user.jQuery);
+   $scope.countColumn = function (nameOfCol) {
+      switch (nameOfCol) {
+         case 'javaScript':
+            console.log(nameOfCol);
+            // const total;
+            // users.forEach(user => {
+            //    total+=Number(user.nameOfCol);
+            // });
+            return 2;
+
+         case 'jQuery':
+            console.log(nameOfCol);
+            return 1;
+
+         case 'PHP':
+            console.log(nameOfCol);
+            return 1;
+         case 'javaScript2':
+            const total;
+            users.forEach(user => {
+               total += Number(user.javaScript);
+            });
+            return Number(total);
+         case 'jQuery2':
+            const total;
+            users.forEach(user => {
+               total += Number(user.jQuery);
+            });
+            return Number(total);
+         case 'PHP2':   
+            const total;
+            users.forEach(user => {
+               total += Number(user.PHP);
+            });
+            return Number(total);
+
+      }
    }
-   $scope.AddNumbers = function (user) {
-      var c = Number(user.PHP || 0);
-      var a = Number(user.javaScript || 0);
-      var b = Number(user.jQuery || 0);
-      console.log("a: " + a + " b: " + b + " c: " + c);
-      $scope.sum = a + b + c;
+
+   $scope.getUserCount = function (user) {
+      countColumn('javaScript2');
+      countColumn('jQuery2');
+      countColumn('PHP2');
+      return Number(user.PHP) + Number(user.javaScript) + Number(user.jQuery);
    }
 
    // zasilamy danymi z pliku JSON  
