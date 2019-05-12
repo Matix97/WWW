@@ -17,10 +17,10 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
    $scope.getUserCount = function(user){
       //const total = Number(0);
      
-      const total=user.PHP+user.javaScript+user.jQuery;
-      console.log("PHP: "+user.PHP+" total: "+total);
+      //const total=Number(user.PHP)+Number(user.javaScript)+Number(user.jQuery);
+      //console.log("PHP: "+user.PHP+" total: "+Number(total));
          //total=6;
-      return Number(total);
+      return Number(user.PHP)+Number(user.javaScript)+Number(user.jQuery);
   }
   $scope.AddNumbers = function(user) {
    var c = Number(user.PHP || 0);
