@@ -6,6 +6,7 @@ myApp.run(function (editableOptions) {
 });
 
 
+
 // Tworzymy kotroler UserCtrl
 myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
 
@@ -15,7 +16,11 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
 
    $scope.countTotal = function (users) {
       var total = 0;
+      if(!isNaN())
       for (var i = 0; i < users.length; i++) {
+         if(isNaN(users[i].javaScript)) users[i].javaScript=0;
+         if(isNaN(users[i].jQuery)) users[i].jQuery=0;
+         if(isNaN(users[i].PHP)) users[i].PHP=0;
          total += Number(users[i].javaScript)
          total += Number(users[i].jQuery)
          total += Number(users[i].PHP)
@@ -27,6 +32,7 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
          case 'javaScript':
             var total = 0;
             for (var i = 0; i < users.length; i++) {
+               if(isNaN(users[i].javaScript)) users[i].javaScript=0;
                total += Number(users[i].javaScript)
             }
             return total;
@@ -34,6 +40,7 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
          case 'jQuery':
             var total = 0;
             for (var i = 0; i < users.length; i++) {
+               if(isNaN(users[i].jQuery)) users[i].jQuery=0;
                total += Number(users[i].jQuery)
             }
             return total;
@@ -41,6 +48,7 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
          case 'PHP':
             var total = 0;
             for (var i = 0; i < users.length; i++) {
+               if(isNaN(users[i].PHP)) users[i].PHP=0;
                total += Number(users[i].PHP)
             }
             return total;
@@ -50,6 +58,9 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
    }
 
    $scope.getUserCount = function (user) {
+      if(isNaN(user.javaScript)) user.javaScript=0;
+      if(isNaN(user.jQuery)) user.jQuery=0;
+      if(isNaN(user.PHP)) user.PHP=0;
       return Number(user.PHP) + Number(user.javaScript) + Number(user.jQuery);
    }
 

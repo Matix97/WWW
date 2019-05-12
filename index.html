@@ -52,7 +52,7 @@
           <tr ng-switch-default>
             <td><input type="button" class="btn btn-danger" ng-click="deleteUser(user);" value="Delete" /></td>
             <td editable-text="user.nazwiskoIImie">{{user.nazwiskoIImie}}</td>
-            <td editable-text="user.nr_indeksu" type="number">{{user.nr_indeksu}}</td>
+            <td editable-text="user.nr_indeksu" type="number" >{{user.nr_indeksu}}</td>
             <td editable-text="user.javaScript" type="number" ng-model="a" ng-change="getUserCount(user)">
               {{user.javaScript}}</td>
             <td editable-text="user.jQuery" type="number" ng-model="b" ng-change="getUserCount(user)">{{user.jQuery}}
