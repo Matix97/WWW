@@ -16,15 +16,14 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
 
    $scope.countTotal = function (users) {
       var total = 0;
-      if (!isNaN())
-         for (var i = 0; i < users.length; i++) {
-            if (isNaN(users[i].javaScript)) users[i].javaScript = 0;
-            if (isNaN(users[i].jQuery)) users[i].jQuery = 0;
-            if (isNaN(users[i].PHP)) users[i].PHP = 0;
-            total += Number(users[i].javaScript)
-            total += Number(users[i].jQuery)
-            total += Number(users[i].PHP)
-         }
+      for (var i = 0; i < users.length; i++) {
+         if (isNaN(users[i].javaScript)) users[i].javaScript = 0;
+         if (isNaN(users[i].jQuery)) users[i].jQuery = 0;
+         if (isNaN(users[i].PHP)) users[i].PHP = 0;
+         total += Number(users[i].javaScript)
+         total += Number(users[i].jQuery)
+         total += Number(users[i].PHP)
+      }
       return total;
    }
    $scope.countColumn = function (nameOfCol, users) {
