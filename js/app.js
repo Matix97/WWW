@@ -13,49 +13,39 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
    $scope.users = [];
    $scope.newUser = {};
 
-   $scope.countColumn = function (nameOfCol) {
+   $scope.countColumn = function (nameOfCol, users) {
       switch (nameOfCol) {
          case 'javaScript':
             console.log(nameOfCol);
-            // const total;
-            // users.forEach(user => {
-            //    total+=Number(user.nameOfCol);
-            // });
-            return 2;
+            var total = 0;
+            for (var i = 0; i < users.length; i++) {
+               console.log(users[i].javaScript)
+               total += Number(users[i].javaScript)
+            }
+            return total;
 
          case 'jQuery':
-            console.log(nameOfCol);
-            return 1;
+            var total = 0;
+            for (var i = 0; i < users.length; i++) {
+               total += Number(users[i].jQuery)
+            }
+            return total;
 
          case 'PHP':
-            console.log(nameOfCol);
-            return 1;
-         case 'javaScript2':
-            const total;
-            users.forEach(user => {
-               total += Number(user.javaScript);
-            });
-            return Number(total);
-         case 'jQuery2':
-            const total;
-            users.forEach(user => {
-               total += Number(user.jQuery);
-            });
-            return Number(total);
-         case 'PHP2':   
-            const total;
-            users.forEach(user => {
-               total += Number(user.PHP);
-            });
-            return Number(total);
+            var total = 0;
+            for (var i = 0; i < users.length; i++) {
+               total += Number(users[i].PHP)
+            }
+            return total;
+
 
       }
    }
 
    $scope.getUserCount = function (user) {
-      countColumn('javaScript2');
-      countColumn('jQuery2');
-      countColumn('PHP2');
+      // countColumn('javaScript2');
+      // countColumn('jQuery2');
+      // countColumn('PHP2');
       return Number(user.PHP) + Number(user.javaScript) + Number(user.jQuery);
    }
 
