@@ -3,13 +3,9 @@ var myApp = angular.module('userApp', ["xeditable"]);
 
 myApp.run(function(editableOptions) {
    editableOptions.theme = 'bs3';
+   //userCount=user.javaScript+user.jQuery+user.PHP;
  });
  
- myApp.controller('Ctrl', function($scope) {
-   $scope.user2 = {
-     name: 'awesome usr'
-   };
- });
 
 // Tworzymy kotroler UserCtrl
 myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
@@ -17,6 +13,22 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
    // tworzymy model
    $scope.users = [];
    $scope.newUser = {};
+
+   $scope.getUserCount = function(user){
+      //const total = Number(0);
+     
+      const total=user.PHP+user.javaScript+user.jQuery;
+      console.log("PHP: "+user.PHP+" total: "+total);
+         //total=6;
+      return Number(total);
+  }
+  $scope.AddNumbers = function(user) {
+   var c = Number(user.PHP || 0);
+   var a = Number(user.javaScript || 0);
+   var b =Number(user.jQuery || 0);
+   console.log("a: "+a+" b: "+b+ " c: "+c);
+   $scope.sum = a+b+c;
+}
 
    // zasilamy danymi z pliku JSON  
    $http.get('users.json').success(function (data) {
@@ -33,14 +45,11 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
       $scope.users.push(newUser);
       $scope.newUser = {};      
    };
-
+ //  $scope.countForUser
    $scope.deleteUser = function (user) {
          $scope.users.splice(user.index, 1);
          _setIndexes();
    };
-
-   
-
    // metody prywatne
    function _setIndexes() {
       $scope.users.forEach(function (user, index) {
