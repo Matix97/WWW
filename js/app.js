@@ -13,13 +13,20 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
    $scope.users = [];
    $scope.newUser = {};
 
+   $scope.countTotal = function (users) {
+      var total = 0;
+      for (var i = 0; i < users.length; i++) {
+         total += Number(users[i].javaScript)
+         total += Number(users[i].jQuery)
+         total += Number(users[i].PHP)
+      }
+      return total;
+   }
    $scope.countColumn = function (nameOfCol, users) {
       switch (nameOfCol) {
          case 'javaScript':
-            console.log(nameOfCol);
             var total = 0;
             for (var i = 0; i < users.length; i++) {
-               console.log(users[i].javaScript)
                total += Number(users[i].javaScript)
             }
             return total;
@@ -43,9 +50,6 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
    }
 
    $scope.getUserCount = function (user) {
-      // countColumn('javaScript2');
-      // countColumn('jQuery2');
-      // countColumn('PHP2');
       return Number(user.PHP) + Number(user.javaScript) + Number(user.jQuery);
    }
 
