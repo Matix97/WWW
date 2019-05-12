@@ -1,11 +1,10 @@
 // Tworzymy moduł aplikacji
 var myApp = angular.module('userApp', ["xeditable"]);
 
-myApp.run(function(editableOptions) {
+myApp.run(function (editableOptions) {
    editableOptions.theme = 'bs3';
-   //userCount=user.javaScript+user.jQuery+user.PHP;
- });
- 
+});
+
 
 // Tworzymy kotroler UserCtrl
 myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
@@ -14,21 +13,16 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
    $scope.users = [];
    $scope.newUser = {};
 
-   $scope.getUserCount = function(user){
-      //const total = Number(0);
-     
-      //const total=Number(user.PHP)+Number(user.javaScript)+Number(user.jQuery);
-      //console.log("PHP: "+user.PHP+" total: "+Number(total));
-         //total=6;
-      return Number(user.PHP)+Number(user.javaScript)+Number(user.jQuery);
-  }
-  $scope.AddNumbers = function(user) {
-   var c = Number(user.PHP || 0);
-   var a = Number(user.javaScript || 0);
-   var b =Number(user.jQuery || 0);
-   console.log("a: "+a+" b: "+b+ " c: "+c);
-   $scope.sum = a+b+c;
-}
+   $scope.getUserCount = function (user) {
+      return Number(user.PHP) + Number(user.javaScript) + Number(user.jQuery);
+   }
+   $scope.AddNumbers = function (user) {
+      var c = Number(user.PHP || 0);
+      var a = Number(user.javaScript || 0);
+      var b = Number(user.jQuery || 0);
+      console.log("a: " + a + " b: " + b + " c: " + c);
+      $scope.sum = a + b + c;
+   }
 
    // zasilamy danymi z pliku JSON  
    $http.get('users.json').success(function (data) {
@@ -39,16 +33,16 @@ myApp.controller('UserCtrl', ['$scope', '$http', function ($scope, $http) {
       var newUser = $scope.newUser;
       newUser.state = "normal";
       newUser.index = $scope.users.length;
-      newUser.javaScript=0;
-      newUser.jQuery=0;
-      newUser.PHP=0;
+      newUser.javaScript = 0;
+      newUser.jQuery = 0;
+      newUser.PHP = 0;
       $scope.users.push(newUser);
-      $scope.newUser = {};      
+      $scope.newUser = {};
    };
- //  $scope.countForUser
+   //  $scope.countForUser
    $scope.deleteUser = function (user) {
-         $scope.users.splice(user.index, 1);
-         _setIndexes();
+      $scope.users.splice(user.index, 1);
+      _setIndexes();
    };
    // metody prywatne
    function _setIndexes() {

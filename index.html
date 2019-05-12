@@ -49,18 +49,20 @@
 
 
           <!-- Szablon wyświetlania użytkownika -->
-          <tr ng-switch-default >
+          <tr ng-switch-default>
             <td><input type="button" class="btn btn-danger" ng-click="deleteUser(user);" value="Delete" /></td>
             <td editable-text="user.nazwiskoIImie">{{user.nazwiskoIImie}}</td>
             <td editable-text="user.nr_indeksu" type="number">{{user.nr_indeksu}}</td>
-            <td editable-text="user.javaScript" type="number" ng-model="a" ng-change="getUserCount(user)">{{user.javaScript}}</td>
-            <td editable-text="user.jQuery" type="number" ng-model="b"ng-change="getUserCount(user)" >{{user.jQuery}}</td>
+            <td editable-text="user.javaScript" type="number" ng-model="a" ng-change="getUserCount(user)">
+              {{user.javaScript}}</td>
+            <td editable-text="user.jQuery" type="number" ng-model="b" ng-change="getUserCount(user)">{{user.jQuery}}
+            </td>
             <td editable-text="user.PHP" type="number" ng-model="c" ng-change="getUserCount(user)">{{user.PHP}}</td>
-             <td >{{getUserCount(user)}}</td>
-            
+            <td>{{getUserCount(user)}}</td>
+
           </tr>
           <!-- Podsumowanie -->
-        <tbody  >
+        <tbody>
           <tr>
             <td>Podsumowanie</td>
             <td></td>
